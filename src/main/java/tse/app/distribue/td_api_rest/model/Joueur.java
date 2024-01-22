@@ -17,8 +17,8 @@ public class Joueur {
 
     private String surname;
 
-    //@ManyToOne
-    //@JoinColumn(name = "equipe_id")
-    //private Equipe equipe;
+    @ManyToOne
+    @JoinColumn(name = "equipe_id")
+    private Equipe equipe;
 }
 

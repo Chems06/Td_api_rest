@@ -18,6 +18,6 @@ public class Equipe {
     private String name;
 
     //@OneToMany(mappedBy = "equipe")
-    @OneToMany
-    private List<Joueur> joueurs;
+    //@OneToMany
+    //private List<Joueur> joueurs;
 }

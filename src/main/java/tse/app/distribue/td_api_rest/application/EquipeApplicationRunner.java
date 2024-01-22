@@ -29,25 +29,34 @@ public class EquipeApplicationRunner implements ApplicationRunner {
 
 
         Equipe equipe1 = new Equipe();
-        equipe1.setName("Test");
+        equipe1.setName("equipe1");
 
-        Joueur joueur1 = new Joueur();
-        joueur1.setName("joueur");
-        joueur1.setSurname("joueurrr");
-        //joueur1.setEquipe(equipe1);
-
-        equipe1.setJoueurs(List.of(joueur1));
-
-        this.joueurRepository.save(joueur1);
         this.equipeRepository.save(equipe1);
 
         Equipe equipe2 = new Equipe();
-        equipe2.setName("test2");
+        equipe2.setName("equipe2");
         this.equipeRepository.save(equipe2);
 
         Equipe equipe3 = new Equipe();
-        equipe3.setName("test3");
+        equipe3.setName("equipe3");
         this.equipeRepository.save(equipe3);
+
+
+        Joueur joueur1 = new Joueur();
+        joueur1.setName("joueur1");
+        joueur1.setSurname("joueur1");
+        joueur1.setEquipe(equipe1);
+        this.joueurRepository.save(joueur1);
+
+        Joueur joueur2 = new Joueur();
+        joueur2.setName("joueur2");
+        joueur2.setSurname("joueur2");
+        joueur2.setEquipe(equipe1);
+        this.joueurRepository.save(joueur2);
+
+
+
+        //equipe1.setJoueurs(List.of(joueur1));
     }
 
 }
