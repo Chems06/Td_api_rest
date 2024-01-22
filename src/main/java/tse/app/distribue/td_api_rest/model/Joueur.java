@@ -1,5 +1,6 @@
 package tse.app.distribue.td_api_rest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,8 +18,10 @@ public class Joueur {
 
     private String surname;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "equipe_id")
     private Equipe equipe;
+
 }
 
