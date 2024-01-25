@@ -17,6 +17,6 @@ public interface EquipeService {
 
     public Equipe saveEquipe(Equipe foundEquipe);
 
-    public void addJoueur(Long id,Joueur joueur);
+    //public void addJoueur(Long id,Joueur joueur);
 
 }

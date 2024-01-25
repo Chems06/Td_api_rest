@@ -53,6 +53,8 @@ public class JoueurController {
         if (joueur != null) {
 
             foundJoueur.setName(joueur.getName());
+            foundJoueur.setSurname(joueur.getSurname());
+            foundJoueur.setEquipe(joueur.getEquipe());
 
             foundJoueur = this.joueurService.saveJoueur(foundJoueur);
         }

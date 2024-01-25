@@ -45,7 +45,7 @@ public class EquipeServiceImpl implements EquipeService {
 
     }
 
-    @Override
+    /*@Override
     public void addJoueur(Long id,Joueur joueur) {
         Equipe equipe = this.equipeRepository.findById(id).orElse(null);
         if (equipe!=null) {
@@ -56,5 +56,5 @@ public class EquipeServiceImpl implements EquipeService {
             equipe1.setId(id);
             equipe1.getJoueurs().add(joueur);
         }
-    }
+    }*/
 }
