@@ -26,8 +26,6 @@ public class EquipeApplicationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-
-
         Equipe equipe1 = new Equipe();
         equipe1.setName("equipe1");
 
@@ -53,11 +51,8 @@ public class EquipeApplicationRunner implements ApplicationRunner {
         joueur2.setSurname("joueur2");
         joueur2.setEquipe(equipe1);
         this.joueurRepository.save(joueur2);
-
-
-
-        //equipe1.setJoueurs(List.of(joueur1));
     }
 
 }
+
 
