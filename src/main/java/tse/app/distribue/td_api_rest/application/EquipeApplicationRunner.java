@@ -1,6 +1,5 @@
 package tse.app.distribue.td_api_rest.application;
 
-import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -11,11 +10,14 @@ import tse.app.distribue.td_api_rest.repository.EquipeRepository;
 import tse.app.distribue.td_api_rest.repository.JoueurRepository;
 import tse.app.distribue.td_api_rest.service.EquipeService;
 
-import java.util.List;
+import java.time.LocalDate;
+
+/**
+ * Initialisation des entités
+ */
 
 @Component
 public class EquipeApplicationRunner implements ApplicationRunner {
-
 
     @Autowired
     private EquipeRepository equipeRepository;
@@ -26,31 +28,41 @@ public class EquipeApplicationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Equipe equipe1 = new Equipe();
-        equipe1.setName("equipe1");
+        // Création des équipes
+        Equipe france = new Equipe();
+        france.setNom("France");
+        this.equipeRepository.save(france);
 
-        this.equipeRepository.save(equipe1);
+        Equipe maroc = new Equipe();
+        maroc.setNom("Maroc");
+        this.equipeRepository.save(maroc);
 
-        Equipe equipe2 = new Equipe();
-        equipe2.setName("equipe2");
-        this.equipeRepository.save(equipe2);
+        Equipe japan = new Equipe();
+        japan.setNom("Japan");
+        this.equipeRepository.save(japan);
 
-        Equipe equipe3 = new Equipe();
-        equipe3.setName("equipe3");
-        this.equipeRepository.save(equipe3);
+        // Création des joueurs
+        Joueur joueurMaroc = new Joueur();
+        joueurMaroc.setNom("Ayane");
+        joueurMaroc.setPrenom("Rosella");
+        joueurMaroc.setDateDeNaissance(LocalDate.of(1996,3,16));
+        joueurMaroc.setEquipe(maroc);
+        this.joueurRepository.save(joueurMaroc);
+
+        Joueur joueurFrance = new Joueur();
+        joueurFrance.setNom("Lakrar");
+        joueurFrance.setPrenom("Maelle");
+        joueurFrance.setDateDeNaissance(LocalDate.of(2000,5,27));
+        joueurFrance.setEquipe(france);
+        this.joueurRepository.save(joueurFrance);
 
 
-        Joueur joueur1 = new Joueur();
-        joueur1.setName("joueur1");
-        joueur1.setSurname("joueur1");
-        joueur1.setEquipe(equipe1);
-        this.joueurRepository.save(joueur1);
-
-        Joueur joueur2 = new Joueur();
-        joueur2.setName("joueur2");
-        joueur2.setSurname("joueur2");
-        joueur2.setEquipe(equipe1);
-        this.joueurRepository.save(joueur2);
+        Joueur joueurJapan = new Joueur();
+        joueurJapan.setNom("Hasegawa");
+        joueurJapan.setPrenom("Yui");
+        joueurJapan.setDateDeNaissance(LocalDate.of(1997,1,29));
+        joueurJapan.setEquipe(japan);
+        this.joueurRepository.save(joueurJapan);
     }
 
 }
