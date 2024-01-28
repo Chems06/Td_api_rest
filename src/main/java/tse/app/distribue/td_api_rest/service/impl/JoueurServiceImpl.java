@@ -9,6 +9,10 @@ import tse.app.distribue.td_api_rest.service.JoueurService;
 
 import java.util.List;
 
+/**
+ * Service Implementation for managing Joueur.
+ */
+
 @Service
 public class JoueurServiceImpl implements JoueurService {
 
@@ -25,20 +29,20 @@ public class JoueurServiceImpl implements JoueurService {
     @Transactional(readOnly = true)
     public Joueur findJoueur(Long id){
         return this.joueurRepository.findById(id).orElse(null);
-    };
+    }
 
     @Override
     public Joueur createJoueur(Joueur joueur){
         return this.joueurRepository.save(joueur);
-    };
+    }
 
     @Override
     public void deleteJoueur(Long id){
         this.joueurRepository.deleteById(id);
-    };
+    }
 
     @Override
     public Joueur saveJoueur(Joueur foundJoueur){
         return this.joueurRepository.save(foundJoueur);
-    };
+    }
 }

@@ -1,13 +1,16 @@
 package tse.app.distribue.td_api_rest.model;
 
-import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-/*@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")*/
+import java.time.LocalDate;
+
+/**
+ * Entité Joueur
+ */
 @Entity
 @Data
 @NoArgsConstructor
@@ -17,13 +20,16 @@ public class Joueur {
     @GeneratedValue
     private Long id;
 
-    private String name;
+    private String nom;
 
-    private String surname;
+    private String prenom;
 
-    //@JsonIgnore
+    private LocalDate dateDeNaissance;
+
     @ManyToOne
     @JoinColumn(name = "equipe_id")
+    // Si on supprime l'équipe, les joueurs vont aussi être supprimés
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Equipe equipe;
 }
 
